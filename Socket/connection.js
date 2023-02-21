@@ -2,6 +2,7 @@ const Util = require("../Util")
 module.exports = (server) => {
     const io = require("socket.io")(server, {
         path: "/visitor",
+        transports: ['websocket'],
         cors: {
             origin: process.env.UI_URI
         }
