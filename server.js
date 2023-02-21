@@ -8,7 +8,12 @@ const path= require("path")
 const port = process.env.PORT || 5000
 const server = require("http").createServer(app)
 require("./db/db")
+app.use(express.static(__dirname,"view"))
+app.use("*",(req, res)=>{
+    return res.status(200).sendFile("index.html")
+})
 require("./Socket/connection")(server)
+
 
 
 
